@@ -1,0 +1,232 @@
+/* Basic reset and layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Container for sidebar and main area */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 260px;
+  background-color: #343541;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header h2 {
+  margin-bottom: 20px;
+}
+
+/* Sidebar menu buttons */
+.sidebar-menu button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #565b64;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar-menu button:hover {
+  background-color: #6c727a;
+}
+
+/* Past chats list in sidebar */
+.past-chats-list {
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 40vh;
+}
+
+.past-chat-item {
+  background: #454a54;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.past-chat-item:hover .delete-chat-icon {
+  display: block;
+}
+
+.delete-chat-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+  color: #f00;
+}
+
+/* Main area styling */
+.main-area {
+  flex: 1;
+  background-color: #f7f7f8;
+  position: relative; /* Add this to contain the views */
+}
+
+/* Chat view styling */
+.chat-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute; /* Add this to ensure it overlays correctly */
+  width: 100%;
+}
+
+.chat-log {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 15px;
+  max-width: 97%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+  max-width: 40%;
+  margin-left: auto;
+}
+
+.message.assistant {
+  background-color: #fff;
+  align-self: flex-start;
+  margin-right: auto;
+  /* Let Markdown formatting control newlines and indentation */
+}
+
+.message.assistant ul,
+.message.assistant ol {
+  margin-left: 40px;
+}
+
+.message.assistant p {
+  margin-bottom: 10px;
+}
+
+/* Favorite star icon on messages */
+.message.assistant {
+  position: relative; /* Add this to make the star position relative to the message box */
+  background-color: #fff;
+  align-self: flex-start;
+  /* Let Markdown formatting control newlines and indentation */
+}
+
+.favorite-star {
+  position: absolute;
+  top: 5px; /* Adjust this value to position the star vertically */
+  right: 5px; /* Adjust this value to position the star horizontally */
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+}
+
+.favorite-star:hover {
+  color: gold;
+}
+
+/* Input area for chat */
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background: #fff;
+}
+
+#message-input {
+  flex: 1;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+#send-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #343541;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#send-btn:hover {
+  background: #565b64;
+}
+
+/* Favorites view styling */
+.favorites-view {
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f7f7f8;
+  position: absolute; /* Add this to ensure it overlays correctly */
+  width: 100%;
+  top: 0; /* Ensure it starts at the top */
+  left: 0; /* Ensure it starts at the left */
+}
+
+.favorites-list-view .favorite-item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.favorite-title {
+  font-size: 16px;
+}
+
+.favorite-content {
+  margin-top: 10px;
+}
+
+.favorite-content.hidden {
+  display: none;
+}
+
+/* Trash icon for deleting favorites */
+.delete-fav-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+  color: #f00;
+}
+
+.favorite-item:hover .delete-fav-icon {
+  display: block;
+}

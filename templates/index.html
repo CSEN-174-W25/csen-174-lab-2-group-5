@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fridge2Fork</title>
+  <!-- Include marked.js for Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Fridge2Fork</h2>
+      </div>
+      <div class="sidebar-menu">
+        <button id="new-chat-btn">New Chat</button>
+        <button id="favorites-btn">Favorites</button>
+      </div>
+      <!-- Past chats (including current chat) are listed here -->
+      <div id="past-chats-list" class="past-chats-list">
+        <!-- Chat items will be inserted here -->
+      </div>
+    </aside>
+
+    <!-- Main area -->
+    <main class="main-area">
+      <!-- Chat view -->
+      <div id="chat-view" class="chat-view">
+        <div id="chat-log" class="chat-log">
+          <!-- Chat messages will appear here -->
+        </div>
+        <div class="input-area">
+          <textarea id="message-input" placeholder="enter ingredients here"></textarea>
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+      <!-- Favorites view (hidden by default) -->
+      <div id="favorites-view" class="favorites-view hidden">
+        <div id="favorites-list-view" class="favorites-list-view">
+          <!-- Favorited recipes will appear here as a list of titles -->
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
